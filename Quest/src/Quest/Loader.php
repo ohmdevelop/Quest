@@ -17,6 +17,28 @@ class Loader extends PluginBase implements Listener{
          $this->getServer()->getPluginManager()->registerEvents($this, $this);
        }
            public function onCommand(CommandSender $p, Command $cmd, array $args, label $string): bool{
-           
+           if($cmd->getName() === "quest"){
+            	    if($p instanceof Player){
+            	    $this->Form($p);
+                       }
+                  }
+              return true;
           }
+        public function Form($p){
+         $form = new SimpleForm(function (Player $p, $data){
+             $result = $data;
+           if($result === null){
+              return true;
+          }
+           switch($result){
+             case 0:
+              $this->Quest1($p);
+             break;
+            }
+            });
+           $form->setTitle("Quest");
+           $form->addButton("ส่งหิน\nจำนวน 128 ก้อน");
+           $form->sendToPlayer($p);
+            return $form;
+            }
 }
