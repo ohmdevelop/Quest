@@ -1,0 +1,8 @@
+name: Quest
+main: Quest\Loader
+api: [3.0.0]
+version: 1.0
+author: Nutzatvch
+commands:
+    quest:
+     description: ส่งเควส
